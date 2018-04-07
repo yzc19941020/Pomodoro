@@ -14,6 +14,10 @@
 		33351E1B20727C5700261D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33351E1A20727C5700261D60 /* Assets.xcassets */; };
 		33351E1E20727C5700261D60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33351E1C20727C5700261D60 /* LaunchScreen.storyboard */; };
 		33351E2120727C5700261D60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33351E2020727C5700261D60 /* main.m */; };
+		33351E2920792B0E00261D60 /* TimeStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33351E2820792B0E00261D60 /* TimeStartViewController.m */; };
+		33351E2B20792F4500261D60 /* TimeStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33351E2A20792F4500261D60 /* TimeStartViewController.xib */; };
+		33351E2F2079398600261D60 /* TimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33351E2D2079398600261D60 /* TimeViewController.m */; };
+		33351E302079398600261D60 /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33351E2E2079398600261D60 /* TimeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,12 @@
 		33351E1D20727C5700261D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33351E1F20727C5700261D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33351E2020727C5700261D60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33351E2720792B0E00261D60 /* TimeStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeStartViewController.h; sourceTree = "<group>"; };
+		33351E2820792B0E00261D60 /* TimeStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeStartViewController.m; sourceTree = "<group>"; };
+		33351E2A20792F4500261D60 /* TimeStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeStartViewController.xib; sourceTree = "<group>"; };
+		33351E2C2079398600261D60 /* TimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeViewController.h; sourceTree = "<group>"; };
+		33351E2D2079398600261D60 /* TimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeViewController.m; sourceTree = "<group>"; };
+		33351E2E2079398600261D60 /* TimeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
 		5A45DEBE511DEEFC805F0C25 /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AFD53D5043DC4D3776C2A7 /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +84,12 @@
 				33351E1C20727C5700261D60 /* LaunchScreen.storyboard */,
 				33351E1F20727C5700261D60 /* Info.plist */,
 				33351E2020727C5700261D60 /* main.m */,
+				33351E2720792B0E00261D60 /* TimeStartViewController.h */,
+				33351E2820792B0E00261D60 /* TimeStartViewController.m */,
+				33351E2A20792F4500261D60 /* TimeStartViewController.xib */,
+				33351E2C2079398600261D60 /* TimeViewController.h */,
+				33351E2D2079398600261D60 /* TimeViewController.m */,
+				33351E2E2079398600261D60 /* TimeViewController.xib */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -156,7 +172,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33351E2B20792F4500261D60 /* TimeStartViewController.xib in Resources */,
 				33351E1E20727C5700261D60 /* LaunchScreen.storyboard in Resources */,
+				33351E302079398600261D60 /* TimeViewController.xib in Resources */,
 				33351E1B20727C5700261D60 /* Assets.xcassets in Resources */,
 				33351E1920727C5700261D60 /* Main.storyboard in Resources */,
 			);
@@ -223,9 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33351E2920792B0E00261D60 /* TimeStartViewController.m in Sources */,
 				33351E1620727C5700261D60 /* ViewController.m in Sources */,
 				33351E2120727C5700261D60 /* main.m in Sources */,
 				33351E1320727C5700261D60 /* AppDelegate.m in Sources */,
+				33351E2F2079398600261D60 /* TimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
