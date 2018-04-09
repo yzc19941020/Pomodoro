@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, FruitList) {
-    FruitListApple = 0,
-    FruitListLemon,
-    FruitListPear,
-    FruitListBanana,
-    FruitListPeach,
+    FruitListApple = 10,
+    FruitListLemon = 15,
+    FruitListPear = 20,
+    FruitListBanana = 30,
+    FruitListPeach = 45,
 };
 @interface ViewController : UIViewController
 

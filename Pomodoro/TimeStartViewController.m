@@ -8,10 +8,14 @@
 
 #import "TimeStartViewController.h"
 #import "TimeViewController.h"
+@import HWDownSelectedView;
 
 @interface TimeStartViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *remainTimeText;
+@property (weak, nonatomic) IBOutlet UITextField *titleText;
+@property (weak, nonatomic) IBOutlet UITextField *remainTime;
+@property (weak, nonatomic) IBOutlet HWDownSelectedView *restTime;
+@property (weak, nonatomic) IBOutlet HWDownSelectedView *rest;
 
 @property (nonatomic) NSInteger remainTimeSecond;
 
@@ -41,8 +45,17 @@
 
 - (void)initData {
     NSInteger min = _remainTimeSecond / 60;
-    _remainTimeText.text = [NSString stringWithFormat:@"%ld:00", (long)min];
-    _remainTimeText.textAlignment = NSTextAlignmentCenter;
+    _remainTime.text = [NSString stringWithFormat:@"%ld:00", (long)min];
+//    _remainTime.textAlignment = NSTextAlignmentCenter;
+    
+    _restTime.placeholder = @"请选择";
+    _restTime.listArray = @[@"05:00", @"10:00", @"15:00"];
+//    _restTime.textAlignment = NSTextAlignmentCenter;
+    
+    _rest.placeholder = @"请选择";
+    _rest.listArray = @[@"0", @"1", @"2", @"3"];
+//    _rest.textAlignment = NSTextAlignmentCenter;
+    
 }
 
 - (IBAction)backHandler:(UIButton *)sender {
@@ -50,8 +63,16 @@
 }
 
 - (IBAction)timeStart:(UIButton *)sender {
-    UIViewController *vc = [TimeViewController new];
+    UIViewController *vc = [[TimeViewController alloc] initWithRemainTime:[_remainTime.text integerValue] * 60
+                                                                 restTime:[_restTime.text integerValue] * 60
+                                                                     rest:[_rest.text integerValue]];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [_restTime close];
+    [_rest close];
 }
 /*
 #pragma mark - Navigation

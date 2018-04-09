@@ -14,6 +14,20 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>The MIT License (MIT)
+
+Copyright (c) 2016 hw 
+
+</string>
+			<key>License</key>
+			<string>MIT</string>
+			<key>Title</key>
+			<string>HWDownSelectedView</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>This code is distributed under the terms and conditions of the MIT license.
 
 Copyright (c) 2014-2015 Tyler Fox

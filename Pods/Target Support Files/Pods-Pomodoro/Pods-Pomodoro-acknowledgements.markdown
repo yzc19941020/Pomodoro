@@ -1,6 +1,14 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## HWDownSelectedView
+
+The MIT License (MIT)
+
+Copyright (c) 2016 hw 
+
+
+
 ## PureLayout
 
 This code is distributed under the terms and conditions of the MIT license.

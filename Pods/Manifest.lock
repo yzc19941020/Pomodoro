@@ -1,12 +1,15 @@
 PODS:
+  - HWDownSelectedView (1.0.1)
   - PureLayout (3.0.2)
 
 DEPENDENCIES:
+  - HWDownSelectedView (~> 1.0.1)
   - PureLayout
 
 SPEC CHECKSUMS:
+  HWDownSelectedView: 950a2d2e5b0e5d9538b33873c3badf642e461b86
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
 
-PODFILE CHECKSUM: 56bda7d57dcc0fd35301e58ad5710dee8c56f602
+PODFILE CHECKSUM: f325e55992ec1916dc371d015ec446b5b20fff40
 
 COCOAPODS: 1.4.0

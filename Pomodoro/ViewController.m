@@ -29,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
     self.navigationController.navigationBarHidden = YES;
     [self setupSubView];
 }
@@ -53,7 +54,7 @@
         
         UIButton *button = [UIButton new];
         button.backgroundColor = [UIColor redColor];
-        button.tag = 10 + i * 5;
+        button.tag = [_fruitList[i] integerValue];
         [view addSubview:button];
         [button autoSetDimensionsToSize:CGSizeMake(200, 200)];
         [button autoCenterInSuperview];

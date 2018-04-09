@@ -10,4 +10,8 @@
 
 @interface TimeViewController : UIViewController
 
+- (instancetype)initWithRemainTime:(NSInteger)remainTime
+                          restTime:(NSInteger)restTime
+                              rest:(NSInteger)rest;
+
 @end
