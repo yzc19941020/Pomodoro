@@ -40,24 +40,44 @@
 }
 
 - (void)setupSubView {
-    _fruitList = @[@(FruitListApple), @(FruitListLemon), @(FruitListPear), @(FruitListBanana), @(FruitListPeach)];
+    _fruitList = @[@(FruitListCherry), @(FruitListApple), @(FruitListPear), @(FruitListBanana), @(FruitListWatermelon)];
     
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 200, screenWidth, screenHeight - 200)];
-    _scrollView.contentSize = CGSizeMake(screenWidth * _fruitList.count, screenHeight - 200);
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, screenHeight * 0.3, screenWidth, screenHeight * 0.7)];
+    _scrollView.contentSize = CGSizeMake(screenWidth * _fruitList.count, screenHeight * 0.7);
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < _fruitList.count; i++) {
         UIView *view = [UIView new];
-        view.backgroundColor = [UIColor blueColor];
+//        view.backgroundColor = [UIColor blueColor];
         
         UIButton *button = [UIButton new];
-        button.backgroundColor = [UIColor redColor];
+//        button.backgroundColor = [UIColor redColor];
+        switch (i) {
+            case 0:
+                [button setImage:[UIImage imageNamed:@"cherry.png"] forState:UIControlStateNormal];
+                break;
+            case 1:
+                [button setImage:[UIImage imageNamed:@"apple.png"] forState:UIControlStateNormal];
+                break;
+            case 2:
+                [button setImage:[UIImage imageNamed:@"pear.png"] forState:UIControlStateNormal];
+                break;
+            case 3:
+                [button setImage:[UIImage imageNamed:@"banana.png"] forState:UIControlStateNormal];
+                break;
+            case 4:
+                [button setImage:[UIImage imageNamed:@"watermelon.png"] forState:UIControlStateNormal];
+                break;
+            default:
+                break;
+        }
         button.tag = [_fruitList[i] integerValue];
         [view addSubview:button];
-        [button autoSetDimensionsToSize:CGSizeMake(200, 200)];
-        [button autoCenterInSuperview];
+        [button autoSetDimensionsToSize:CGSizeMake(300, 300)];
+        [button autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:50];
+        [button autoAlignAxisToSuperviewAxis:ALAxisVertical];
         [button addTarget:self action:@selector(buttonHandler:) forControlEvents:UIControlEventTouchUpInside];
         
         UILabel *label = [UILabel new];
@@ -69,7 +89,7 @@
         [_scrollView addSubview:view];
         [view autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:screenWidth * i];
         [view autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-        [view autoSetDimensionsToSize:CGSizeMake(screenWidth, screenHeight - 200)];
+        [view autoSetDimensionsToSize:CGSizeMake(screenWidth, screenHeight * 0.7)];
         
         [array addObject:view];
     }

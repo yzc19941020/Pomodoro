@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *remainTime;
 @property (weak, nonatomic) IBOutlet HWDownSelectedView *restTime;
 @property (weak, nonatomic) IBOutlet HWDownSelectedView *rest;
+@property (weak, nonatomic) IBOutlet UIImageView *fruitImageView;
 
 @property (nonatomic) NSInteger remainTimeSecond;
 
@@ -44,17 +45,34 @@
 }
 
 - (void)initData {
+    switch (_remainTimeSecond / 60) {
+        case FruitListCherry:
+            [_fruitImageView setImage:[UIImage imageNamed:@"cherry.png"]];
+            break;
+        case FruitListApple:
+            [_fruitImageView setImage:[UIImage imageNamed:@"apple.png"]];
+            break;
+        case FruitListPear:
+            [_fruitImageView setImage:[UIImage imageNamed:@"pear.png"]];
+            break;
+        case FruitListBanana:
+            [_fruitImageView setImage:[UIImage imageNamed:@"banana.png"]];
+            break;
+        case FruitListWatermelon:
+            [_fruitImageView setImage:[UIImage imageNamed:@"watermelon.png"]];
+            break;
+        default:
+            break;
+    }
+    
     NSInteger min = _remainTimeSecond / 60;
     _remainTime.text = [NSString stringWithFormat:@"%ld:00", (long)min];
-//    _remainTime.textAlignment = NSTextAlignmentCenter;
     
     _restTime.placeholder = @"请选择";
     _restTime.listArray = @[@"05:00", @"10:00", @"15:00"];
-//    _restTime.textAlignment = NSTextAlignmentCenter;
     
     _rest.placeholder = @"请选择";
     _rest.listArray = @[@"0", @"1", @"2", @"3"];
-//    _rest.textAlignment = NSTextAlignmentCenter;
     
 }
 

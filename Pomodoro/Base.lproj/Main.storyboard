@@ -18,40 +18,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRY-gY-8jU">
-                                <rect key="frame" x="16" y="71" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="帮助"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRY-gY-8jU">
+                                <rect key="frame" x="16" y="88" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="bRT-Kp-ugH"/>
+                                    <constraint firstAttribute="height" constant="32" id="thQ-18-IM0"/>
+                                </constraints>
+                                <state key="normal" image="help"/>
                                 <connections>
-                                    <segue destination="ijC-1s-GaC" kind="showDetail" id="Ahc-be-S4p"/>
+                                    <segue destination="ijC-1s-GaC" kind="presentation" id="Ahc-be-S4p"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pomodoro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1B-3h-UyF">
-                                <rect key="frame" x="147" y="115" width="80" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuF-qO-p6f">
                                 <rect key="frame" x="328" y="71" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="日历"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pomodoro" translatesAutoresizingMaskIntoConstraints="NO" id="WMk-xR-nFp">
+                                <rect key="frame" x="71.5" y="174" width="232" height="43"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnG-iN-lwo">
+                                <rect key="frame" x="87" y="227" width="200" height="17"/>
+                                <string key="text">点击以下水果，即可开始番茄钟 
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帮助" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM6-nT-ohY">
+                                <rect key="frame" x="16.5" y="121" width="31" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="jGa-JU-vvK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.93333333333333335" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="WMk-xR-nFp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Arj-3p-6Wi"/>
+                            <constraint firstItem="RM6-nT-ohY" firstAttribute="centerX" secondItem="fRY-gY-8jU" secondAttribute="centerX" id="PYK-OC-ouB"/>
+                            <constraint firstItem="WMk-xR-nFp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="Uhq-Nm-SXY"/>
+                            <constraint firstItem="fRY-gY-8jU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="b0S-ir-UVr"/>
+                            <constraint firstItem="QnG-iN-lwo" firstAttribute="top" secondItem="WMk-xR-nFp" secondAttribute="bottom" constant="10" id="gGc-lZ-sa2"/>
+                            <constraint firstItem="RM6-nT-ohY" firstAttribute="top" secondItem="fRY-gY-8jU" secondAttribute="bottom" constant="1" id="kVz-c8-2gk"/>
+                            <constraint firstItem="fRY-gY-8jU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="pT0-Fy-uwL"/>
+                            <constraint firstItem="QnG-iN-lwo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wKl-ym-bTU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="jlS-De-ngt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="132"/>
+            <point key="canvasLocation" x="600.79999999999995" y="131.78410794602701"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="q0c-Mc-mUI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sjd-H3-JKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ijC-1s-GaC" userLabel="Help View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ikm-y6-bbB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -61,9 +86,6 @@
                                 <rect key="frame" x="16" y="20" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="JBC-Ou-Ge9"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfV-ug-9wX">
                                 <rect key="frame" x="166" y="183" width="42" height="21"/>
@@ -78,6 +100,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="uLb-W6-FgI"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sjd-H3-JKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1505" y="52"/>
         </scene>
@@ -98,8 +121,8 @@
             <point key="canvasLocation" x="-231" y="132"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ahc-be-S4p"/>
-        <segue reference="JBC-Ou-Ge9"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="help" width="256" height="256"/>
+        <image name="pomodoro" width="232" height="43"/>
+    </resources>
 </document>

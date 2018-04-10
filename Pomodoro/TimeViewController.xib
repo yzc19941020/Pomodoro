@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,10 +25,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-l2-Omx">
-                    <rect key="frame" x="22" y="20" width="34" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Back"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-l2-Omx">
+                    <rect key="frame" x="0.0" y="20" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="Dwk-Il-rZM"/>
+                        <constraint firstAttribute="height" constant="64" id="bcF-Ze-qh8"/>
+                    </constraints>
+                    <state key="normal" image="arrow_back"/>
                     <connections>
                         <action selector="backHandler:" destination="-1" eventType="touchUpInside" id="Qh4-Tg-ERo"/>
                     </connections>
@@ -71,10 +75,29 @@
                         <action selector="tipButtonHandler:" destination="-1" eventType="touchUpInside" id="WoW-Pc-ip4"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="结束" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="naz-hY-yXG">
+                    <rect key="frame" x="12" y="63" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6ta-0L-Wwr"/>
+                        <constraint firstAttribute="width" constant="42" id="Pgq-Sn-0Hf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.93333333333333335" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OaG-l2-Omx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="0IA-i1-Y0s"/>
+                <constraint firstItem="OaG-l2-Omx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="JrF-UI-a84"/>
+                <constraint firstItem="naz-hY-yXG" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="12" id="sYY-qx-Zjb"/>
+                <constraint firstItem="naz-hY-yXG" firstAttribute="top" secondItem="OaG-l2-Omx" secondAttribute="bottom" constant="-21" id="yoF-x4-EVl"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="arrow_back" width="256" height="256"/>
+    </resources>
 </document>

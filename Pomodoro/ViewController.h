@@ -7,16 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "constant.h"
 
-typedef NS_ENUM(NSUInteger, FruitList) {
-    FruitListApple = 10,
-    FruitListLemon = 15,
-    FruitListPear = 20,
-    FruitListBanana = 30,
-    FruitListPeach = 45,
-};
 @interface ViewController : UIViewController
-
 
 @end
 

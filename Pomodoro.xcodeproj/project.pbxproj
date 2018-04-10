@@ -38,6 +38,7 @@
 		33351E2C2079398600261D60 /* TimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeViewController.h; sourceTree = "<group>"; };
 		33351E2D2079398600261D60 /* TimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeViewController.m; sourceTree = "<group>"; };
 		33351E2E2079398600261D60 /* TimeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
+		33351E53207D4BA000261D60 /* constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constant.h; sourceTree = "<group>"; };
 		5A45DEBE511DEEFC805F0C25 /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AFD53D5043DC4D3776C2A7 /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +91,7 @@
 				33351E2C2079398600261D60 /* TimeViewController.h */,
 				33351E2D2079398600261D60 /* TimeViewController.m */,
 				33351E2E2079398600261D60 /* TimeViewController.xib */,
+				33351E53207D4BA000261D60 /* constant.h */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
