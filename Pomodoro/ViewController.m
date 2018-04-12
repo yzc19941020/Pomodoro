@@ -13,6 +13,7 @@
 
 #import "ViewController.h"
 #import "TimeStartViewController.h"
+#import "HelpViewController.h"
 
 @interface ViewController ()
 
@@ -50,10 +51,8 @@
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < _fruitList.count; i++) {
         UIView *view = [UIView new];
-//        view.backgroundColor = [UIColor blueColor];
         
         UIButton *button = [UIButton new];
-//        button.backgroundColor = [UIColor redColor];
         switch (i) {
             case 0:
                 [button setImage:[UIImage imageNamed:@"cherry.png"] forState:UIControlStateNormal];
@@ -81,9 +80,9 @@
         [button addTarget:self action:@selector(buttonHandler:) forControlEvents:UIControlEventTouchUpInside];
         
         UILabel *label = [UILabel new];
-        label.text = [NSString stringWithFormat:@"test %d", i];
+        label.text = [NSString stringWithFormat:@"%ld分钟", (long)[_fruitList[i] integerValue]];
         [view addSubview:label];
-        [label autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+        [label autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:button withOffset:20];
         [label autoAlignAxisToSuperviewAxis:ALAxisVertical];
         
         [_scrollView addSubview:view];
@@ -101,4 +100,10 @@
     UIViewController *vc = [[TimeStartViewController alloc] initWithTime:sender.tag];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (IBAction)helpButtonHandler:(UIButton *)sender {
+    UIViewController *vc = [HelpViewController new];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 @end

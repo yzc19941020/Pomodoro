@@ -11,7 +11,8 @@
 
 @interface TimeViewController : UIViewController
 
-- (instancetype)initWithRemainTime:(NSInteger)remainTime
+- (instancetype)initWithTitle:(NSString *)title
+                   remainTime:(NSInteger)remainTime
                           restTime:(NSInteger)restTime
                               rest:(NSInteger)rest;
 

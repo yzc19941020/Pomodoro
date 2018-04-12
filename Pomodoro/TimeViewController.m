@@ -14,6 +14,7 @@
 @property (nonatomic) NSInteger restTime;
 @property (nonatomic) NSInteger rest;
 @property (nonatomic) NSInteger currentTime;
+@property (nonatomic, copy) NSString *titleStr;
 @property (nonatomic) BOOL isRest;
 @property (nonatomic) BOOL isSuccess;
 @property (nonatomic, weak) NSTimer *timer;
@@ -22,16 +23,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *remainLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restLabel;
 @property (weak, nonatomic) IBOutlet UIButton *tipButton;
+@property (weak, nonatomic) IBOutlet UIImageView *fruitImageView;
+@property (weak, nonatomic) IBOutlet UILabel *finishLabel;
+@property (weak, nonatomic) IBOutlet UIView *tipView;
+@property (weak, nonatomic) IBOutlet UIView *tipPlane;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipTitleLabel;
 
 @end
 
 @implementation TimeViewController
 
-- (instancetype)initWithRemainTime:(NSInteger)remainTime
+- (instancetype)initWithTitle:(NSString *)title
+                   remainTime:(NSInteger)remainTime
                           restTime:(NSInteger)restTime
                               rest:(NSInteger)rest {
     self = [super init];
     if (self) {
+        self.titleStr = title;
         self.remainTime = remainTime;
         self.restTime = restTime;
         self.rest = rest;
@@ -42,21 +51,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _titleLabel.text = _titleStr ? _titleStr : @"";
+    _tipTitleLabel.text = _titleStr ? _titleStr : @"";
+    
     _tipLabel.text = @"下次休息";
     _remainLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", _remainTime / 60, _remainTime % 60];
     _restLabel.text = [NSString stringWithFormat:@"%ld", (long)_rest];
     
     _tipButton.hidden = YES;
     
+    switch (_remainTime / 60) {
+        case FruitListCherry:
+            [_fruitImageView setImage:[UIImage imageNamed:@"cherry.png"]];
+            break;
+        case FruitListApple:
+            [_fruitImageView setImage:[UIImage imageNamed:@"apple.png"]];
+            break;
+        case FruitListPear:
+            [_fruitImageView setImage:[UIImage imageNamed:@"pear.png"]];
+            break;
+        case FruitListBanana:
+            [_fruitImageView setImage:[UIImage imageNamed:@"banana.png"]];
+            break;
+        case FruitListWatermelon:
+            [_fruitImageView setImage:[UIImage imageNamed:@"watermelon.png"]];
+            break;
+        default:
+            break;
+    }
+    
+    _tipView.layer.cornerRadius = 8.0f;
+    
     _currentTime = _remainTime;
     _isRest = NO;
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didFailed)
+                                             selector:@selector(showFinishedState)
                                                  name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didFailed)
+                                             selector:@selector(showFinishedState)
                                                  name:UIApplicationWillResignActiveNotification object:nil];
 }
 
@@ -66,15 +100,13 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [_timer invalidate];
+    if (_timer) {
+        [_timer invalidate];
+    }
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)didFailed {
-    _isSuccess = NO;
 }
 
 - (void)startForNotRest {
@@ -110,42 +142,52 @@
     if (!_isRest) {
         if (_rest > 0) {
             [_tipButton setTitle:@"开始休息" forState:UIControlStateNormal];
-//            [self startForRest];
         } else {
             [_tipButton setTitle:@"已完成，点击结束" forState:UIControlStateNormal];
-//            [self finishTime];
         }
     } else {
         [_tipButton setTitle:@"休息结束，点击继续" forState:UIControlStateNormal];
-//        [self startForNotRest];
     }
+    [_tipButton sizeToFit];
     _tipButton.hidden = NO;
 }
 
-- (void)finishTime {
+- (void)finishSuccess {
     _isSuccess = YES;
-//    [_timer invalidate];
-    [self goBack];
+    [self showFinishedState];
 }
 
 - (IBAction)tipButtonHandler:(UIButton *)sender {
     if (!_isRest) {
         if (_rest > 0) {
             [self startForRest];
-            _tipButton.hidden = YES;
             [_tipButton setTitle:@"" forState:UIControlStateNormal];
         } else {
-            [self finishTime];
+            [self finishSuccess];
         }
     } else {
         [self startForNotRest];
-        _tipButton.hidden = YES;
         [_tipButton setTitle:@"" forState:UIControlStateNormal];
+    }
+    _tipButton.hidden = YES;
+}
+
+- (void)showFinishedState {
+    [_timer invalidate];
+    _tipPlane.hidden = NO;
+    if (_isSuccess) {
+        _finishLabel.text = @"恭喜！本次番茄钟成功完成！";
+    } else {
+        _finishLabel.text = @"很遗憾！本次番茄钟未完成！";
     }
 }
 
-- (IBAction)backHandler:(UIButton *)sender {
+- (IBAction)finishHandler:(UIButton *)sender {
     [self goBack];
+}
+
+- (IBAction)backHandler:(UIButton *)sender {
+    [self showFinishedState];
 }
 
 - (void)goBack {
@@ -154,6 +196,7 @@
     self.navigationController.viewControllers = tmpArray;
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 /*
 #pragma mark - Navigation
 

@@ -18,6 +18,8 @@
 		33351E2B20792F4500261D60 /* TimeStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33351E2A20792F4500261D60 /* TimeStartViewController.xib */; };
 		33351E2F2079398600261D60 /* TimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33351E2D2079398600261D60 /* TimeViewController.m */; };
 		33351E302079398600261D60 /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33351E2E2079398600261D60 /* TimeViewController.xib */; };
+		33351E5C207FE2F200261D60 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33351E5A207FE2F200261D60 /* HelpViewController.m */; };
+		33351E5D207FE2F200261D60 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33351E5B207FE2F200261D60 /* HelpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,9 @@
 		33351E2D2079398600261D60 /* TimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeViewController.m; sourceTree = "<group>"; };
 		33351E2E2079398600261D60 /* TimeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
 		33351E53207D4BA000261D60 /* constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constant.h; sourceTree = "<group>"; };
+		33351E59207FE2F200261D60 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		33351E5A207FE2F200261D60 /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		33351E5B207FE2F200261D60 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		5A45DEBE511DEEFC805F0C25 /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AFD53D5043DC4D3776C2A7 /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +97,9 @@
 				33351E2D2079398600261D60 /* TimeViewController.m */,
 				33351E2E2079398600261D60 /* TimeViewController.xib */,
 				33351E53207D4BA000261D60 /* constant.h */,
+				33351E59207FE2F200261D60 /* HelpViewController.h */,
+				33351E5A207FE2F200261D60 /* HelpViewController.m */,
+				33351E5B207FE2F200261D60 /* HelpViewController.xib */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 				33351E302079398600261D60 /* TimeViewController.xib in Resources */,
 				33351E1B20727C5700261D60 /* Assets.xcassets in Resources */,
 				33351E1920727C5700261D60 /* Main.storyboard in Resources */,
+				33351E5D207FE2F200261D60 /* HelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33351E2920792B0E00261D60 /* TimeStartViewController.m in Sources */,
+				33351E5C207FE2F200261D60 /* HelpViewController.m in Sources */,
 				33351E1620727C5700261D60 /* ViewController.m in Sources */,
 				33351E2120727C5700261D60 /* main.m in Sources */,
 				33351E1320727C5700261D60 /* AppDelegate.m in Sources */,

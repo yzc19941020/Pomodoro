@@ -10,7 +10,7 @@
 #import "TimeViewController.h"
 @import HWDownSelectedView;
 
-@interface TimeStartViewController ()
+@interface TimeStartViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 @property (weak, nonatomic) IBOutlet UITextField *remainTime;
@@ -45,6 +45,8 @@
 }
 
 - (void)initData {
+    _titleText.delegate = self;
+    
     switch (_remainTimeSecond / 60) {
         case FruitListCherry:
             [_fruitImageView setImage:[UIImage imageNamed:@"cherry.png"]];
@@ -81,9 +83,10 @@
 }
 
 - (IBAction)timeStart:(UIButton *)sender {
-    UIViewController *vc = [[TimeViewController alloc] initWithRemainTime:[_remainTime.text integerValue] * 60
-                                                                 restTime:[_restTime.text integerValue] * 60
-                                                                     rest:[_rest.text integerValue]];
+    UIViewController *vc = [[TimeViewController alloc] initWithTitle:_titleText.text
+                                                          remainTime:[_remainTime.text integerValue] * 60
+                                                            restTime:[_restTime.text integerValue] * 60
+                                                                rest:[_rest.text integerValue]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -91,6 +94,15 @@
 {
     [_restTime close];
     [_rest close];
+}
+
+- (IBAction)didTouch:(UIControl *)sender {
+    [_titleText endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 /*
 #pragma mark - Navigation
