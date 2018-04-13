@@ -83,11 +83,20 @@
 }
 
 - (IBAction)timeStart:(UIButton *)sender {
-    UIViewController *vc = [[TimeViewController alloc] initWithTitle:_titleText.text
-                                                          remainTime:[_remainTime.text integerValue] * 60
-                                                            restTime:[_restTime.text integerValue] * 60
-                                                                rest:[_rest.text integerValue]];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (_restTime.text && _restTime.text.length != 0 && _rest.text && _rest.text.length != 0) {
+        UIViewController *vc = [[TimeViewController alloc] initWithTitle:_titleText.text
+                                                              remainTime:[_remainTime.text integerValue] * 60
+                                                                restTime:[_restTime.text integerValue] * 60
+                                                                    rest:[_rest.text integerValue]];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"设置错误" message:@"请选择休息时间和休息次数！" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"好的！" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alertController addAction:actionCancel];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

@@ -7,6 +7,7 @@
 //
 
 #import "TimeViewController.h"
+#import "TomatoClock.h"
 
 @interface TimeViewController ()
 
@@ -50,6 +51,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
     
     _titleLabel.text = _titleStr ? _titleStr : @"";
     _tipTitleLabel.text = _titleStr ? _titleStr : @"";
@@ -103,6 +106,7 @@
     if (_timer) {
         [_timer invalidate];
     }
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (void)dealloc {
@@ -175,6 +179,29 @@
 - (void)showFinishedState {
     [_timer invalidate];
     _tipPlane.hidden = NO;
+    
+    TomatoClock *clock = [TomatoClock new];
+    clock.title = _titleLabel.text ? _titleLabel.text : @"";
+    NSDate *nowDate = [NSDate date];
+    NSDateFormatter *dateformatter = [NSDateFormatter new];
+    [dateformatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSString *dateStr=[dateformatter stringFromDate:nowDate];
+    clock.finishDate = dateStr ? dateStr : @"";
+    clock.isSuccess = _isSuccess;
+    
+    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *path = [documentPath stringByAppendingPathComponent:@"clockArray.plist"];
+    
+    NSArray *clockArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!clockArray) {
+        clockArray = [NSArray array];
+    }
+    
+    NSMutableArray *array = [clockArray mutableCopy];
+    [array addObject:clock];
+    
+    [NSKeyedArchiver archiveRootObject:[array copy] toFile:path];
+    
     if (_isSuccess) {
         _finishLabel.text = @"恭喜！本次番茄钟成功完成！";
     } else {

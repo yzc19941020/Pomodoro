@@ -14,6 +14,7 @@
 #import "ViewController.h"
 #import "TimeStartViewController.h"
 #import "HelpViewController.h"
+#import "MyRecordViewController.h"
 
 @interface ViewController ()
 
@@ -30,7 +31,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [UIApplication sharedApplication].idleTimerDisabled = YES;
     self.navigationController.navigationBarHidden = YES;
     [self setupSubView];
 }
@@ -99,6 +99,11 @@
 - (void)buttonHandler:(UIButton *)sender {
     UIViewController *vc = [[TimeStartViewController alloc] initWithTime:sender.tag];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)recordButtonHandler:(UIButton *)sender {
+    UIViewController *vc = [MyRecordViewController new];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)helpButtonHandler:(UIButton *)sender {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dVc-yi-9iE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dVc-yi-9iE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRY-gY-8jU">
-                                <rect key="frame" x="16" y="88" width="32" height="32"/>
+                                <rect key="frame" x="18" y="82" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="bRT-Kp-ugH"/>
                                     <constraint firstAttribute="height" constant="32" id="thQ-18-IM0"/>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帮助" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM6-nT-ohY">
-                                <rect key="frame" x="16" y="121" width="31" height="21"/>
+                                <rect key="frame" x="18" y="115" width="31" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="jGa-JU-vvK"/>
                                 </constraints>
@@ -38,10 +38,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuF-qO-p6f">
-                                <rect key="frame" x="328" y="71" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="日历"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuF-qO-p6f">
+                                <rect key="frame" x="319" y="80" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="bUj-0x-h0O"/>
+                                    <constraint firstAttribute="width" constant="36" id="cyc-GX-Q8R"/>
+                                </constraints>
+                                <state key="normal" image="record"/>
+                                <connections>
+                                    <action selector="recordButtonHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LQU-3a-EgI"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pomodoro" translatesAutoresizingMaskIntoConstraints="NO" id="WMk-xR-nFp">
                                 <rect key="frame" x="71.5" y="174" width="232" height="43"/>
@@ -54,16 +60,26 @@
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uay-uA-4av">
+                                <rect key="frame" x="306.5" y="115" width="61.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93333333333333335" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="UuF-qO-p6f" firstAttribute="centerY" secondItem="fRY-gY-8jU" secondAttribute="centerY" id="6XM-uU-Pzb"/>
                             <constraint firstItem="WMk-xR-nFp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Arj-3p-6Wi"/>
+                            <constraint firstItem="Uay-uA-4av" firstAttribute="top" secondItem="UuF-qO-p6f" secondAttribute="bottom" constant="-1" id="IWt-V2-XcB"/>
                             <constraint firstItem="RM6-nT-ohY" firstAttribute="centerX" secondItem="fRY-gY-8jU" secondAttribute="centerX" id="PYK-OC-ouB"/>
                             <constraint firstItem="WMk-xR-nFp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="Uhq-Nm-SXY"/>
-                            <constraint firstItem="fRY-gY-8jU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="b0S-ir-UVr"/>
+                            <constraint firstItem="fRY-gY-8jU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="b0S-ir-UVr"/>
                             <constraint firstItem="QnG-iN-lwo" firstAttribute="top" secondItem="WMk-xR-nFp" secondAttribute="bottom" constant="10" id="gGc-lZ-sa2"/>
                             <constraint firstItem="RM6-nT-ohY" firstAttribute="top" secondItem="fRY-gY-8jU" secondAttribute="bottom" constant="1" id="kVz-c8-2gk"/>
-                            <constraint firstItem="fRY-gY-8jU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="pT0-Fy-uwL"/>
+                            <constraint firstItem="Uay-uA-4av" firstAttribute="centerX" secondItem="UuF-qO-p6f" secondAttribute="centerX" id="nAd-Hb-7ka"/>
+                            <constraint firstItem="fRY-gY-8jU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="pT0-Fy-uwL"/>
+                            <constraint firstItem="UuF-qO-p6f" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="u6U-bs-Md0"/>
                             <constraint firstItem="QnG-iN-lwo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wKl-ym-bTU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -94,5 +110,6 @@
     <resources>
         <image name="help" width="256" height="256"/>
         <image name="pomodoro" width="232" height="43"/>
+        <image name="record" width="256" height="256"/>
     </resources>
 </document>
